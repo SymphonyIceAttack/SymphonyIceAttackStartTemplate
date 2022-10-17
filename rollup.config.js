@@ -8,13 +8,11 @@ import postcss from 'rollup-plugin-postcss'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 export default {
-    input: './src/main.ts',//入口文件
+    input: './src/index.ts',//入口文件
     external: ['lodash'], //告诉rollup不要将此lodash打包，而作为外部依赖
-    global: {
-        'jquery': '$' //告诉rollup 全局变量$即是jquery
-    },
+    global: {},
     output: {
-        file: './dist/bundle.js',
+        file: './dist/index.js',
         format: 'cjs',
         name: 'bundleName',
         sourcemap: true  //生成bundle.map.js文件，方便调试
