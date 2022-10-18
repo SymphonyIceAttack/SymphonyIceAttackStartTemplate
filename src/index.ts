@@ -1,6 +1,7 @@
 import type { PluginOption } from 'vite';
 
 export default function vitePluginTemplate (): PluginOption {
+    
     return {
         // 插件名称
         name: 'vite-plugin-template',

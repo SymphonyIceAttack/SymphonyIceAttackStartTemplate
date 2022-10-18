@@ -6,17 +6,33 @@ import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import postcss from 'rollup-plugin-postcss'
 import serve from 'rollup-plugin-serve'
-import livereload from 'rollup-plugin-livereload'
-export default {
+import { defineConfig } from 'rollup';
+
+export default defineConfig({
     input: './src/index.ts',//入口文件
     external: ['lodash'], //告诉rollup不要将此lodash打包，而作为外部依赖
     global: {},
-    output: {
-        file: './dist/index.js',
-        format: 'cjs',
-        name: 'bundleName',
-        sourcemap: true  //生成bundle.map.js文件，方便调试
-    },
+    output: [
+        {
+            file: './dist/index.cjs.js',
+            format: 'cjs',
+            sourcemap: true,
+            name: "BundleName"
+        },
+        {
+            file: './dist/index.esm.js',
+            format: 'esm',
+            sourcemap: true,
+            name: "BundleName"
+        },
+        {
+            file: './dist/index.umd.js',
+            format: 'umd',
+            sourcemap: true,
+            name: "BundleName"
+        }
+
+    ],
     plugins: [
         typescript(),
         pluginCommonjs(),
@@ -26,10 +42,9 @@ export default {
         }),
         postcss(),
         terser(),
-        livereload(),
         serve({
             open: true,
             contentBase: 'dist'
         })
     ]
-}
+})
