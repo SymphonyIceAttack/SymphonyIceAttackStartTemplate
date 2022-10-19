@@ -1,6 +1,6 @@
-
-import { expect, test } from 'vitest'
-import viteTemplatePlugin from "../src/index"
-test('hello vitest', () => {
-    expect(1).toBe(1)
+import { describe, test, expect } from "vitest";
+describe("Test Origin", () => {
+    test("First Test", () => {
+        expect(1).toBe(1)
+    })
 })

@@ -14,13 +14,13 @@ export default defineConfig({
     global: {},
     output: [
         {
-            file: './dist/index.cjs.js',
+            file: './dist/index.js',
             format: 'cjs',
             sourcemap: true,
             name: "BundleName"
         },
         {
-            file: './dist/index.esm.js',
+            file: './dist/index.mjs.js',
             format: 'esm',
             sourcemap: true,
             name: "BundleName"

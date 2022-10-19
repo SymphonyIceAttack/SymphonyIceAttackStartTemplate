@@ -1,20 +1,32 @@
 {
-  "name": "vite-plugin-template",
-  "version": "1.0.0",
+  "name": "@symphonyiceattack/npm-template",
+  "version": "2.0.4",
   "license": "MIT",
-  "main": "./dist/index.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs.js",
+  "browser": "./dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "url": "https://github.com/SymphonyIceAttack/MyFirstVitePlugin"
+  },
   "types": "./dist/index.d.ts",
   "type": "module",
-  "module": "./dist/index.esm.js",
-  "browser": "./dist/index.umd.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "rollup --config",
     "dev": "rollup --config -w",
     "test": "vitest",
     "watch": "vitest watch --coverage",
     "example:react": "cd examples/vite-react && yarn build",
-    "prepublishOnly": "yarn run build",
-    "release": "npx bumpp --push --tag --commit && yarn publish"
+    "release": "npx bumpp --push --tag --commit && yarn publish  --access=public"
   },
   "devDependencies": {
     "@vitest/coverage-c8": "^0.24.3",
